@@ -4,6 +4,7 @@ require("dotenv").config();
 
 // Import my routes
 const userRoutes = require("./routes/user.routes");
+const projectRoutes = require("./routes/project.routes");
 // Connect to my database
 mongoose
   .connect(process.env.MONGODB_URI, {
@@ -15,6 +16,7 @@ mongoose
 
 // start my server
 fastify.register(userRoutes, { prefix: "/api/v1/users" });
+fastify.register(projectRoutes, { prefix: "/api/v1/projects" });
 
 const start = async () => {
   try {

@@ -38,7 +38,7 @@ async function updateUser(request, reply) {
 async function deleteUser(request, reply) {
   try {
     await User.findByIdAndDelete(request.params.id);
-    reply.status(203).send("");
+    reply.status(204).send("");
   } catch (error) {
     reply.status(500).send(error);
   }
