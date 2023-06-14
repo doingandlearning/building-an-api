@@ -2,6 +2,8 @@ const fastify = require("fastify")({ logger: true });
 const mongoose = require("mongoose");
 require("dotenv").config();
 
+const auth = require("./middlewares/auth")
+
 // Import my routes
 const userRoutes = require("./routes/user.routes");
 const projectRoutes = require("./routes/project.routes");
@@ -18,13 +20,15 @@ mongoose
 fastify.register(userRoutes, { prefix: "/api/v1/users" });
 fastify.register(projectRoutes, { prefix: "/api/v1/projects" });
 
+// fastify.addHook("preHandler", auth);
+
 const start = async () => {
   try {
     await fastify.listen(process.env.PORT || 5000);
     fastify.log.info(
       `Server is running on port ${fastify.server.address().port}`
     );
-  } catch (error) {}
+  } catch (error) { }
 };
 
 start();
