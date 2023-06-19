@@ -1,8 +1,8 @@
-const fastify = require("fastify")({ logger: true });
+const fastify = require("fastify")({ logger: false });
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-const auth = require("./middlewares/auth")
+const { basicAuth } = require("./middlewares/auth")
 
 // Import my routes
 const userRoutes = require("./routes/user.routes");
@@ -20,7 +20,8 @@ mongoose
 fastify.register(userRoutes, { prefix: "/api/v1/users" });
 fastify.register(projectRoutes, { prefix: "/api/v1/projects" });
 
-// fastify.addHook("preHandler", auth);
+// fastify.addHook("preHandler", basicAuth);
+
 
 const start = async () => {
   try {
