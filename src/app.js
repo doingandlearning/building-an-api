@@ -1,8 +1,11 @@
 const fastify = require("fastify")({ logger: false });
 const mongoose = require("mongoose");
 require("dotenv").config();
+const jwtPlugin = require("./plugins/jwtPlugin");
 
 const { basicAuth } = require("./middlewares/auth")
+
+fastify.register(jwtPlugin)
 
 // Import my routes
 const userRoutes = require("./routes/user.routes");
