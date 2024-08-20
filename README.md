@@ -2,7 +2,9 @@
 
 This repo accompanies a video series on building fastify API development.
 
-Each video has an accompanying branch.
+Each video has an accompanying branch. This is the finished state of the application at the end of the video.
+
+At the moment, the main branch is the latest version of the application.
 
 | Branch       | Video                                                                                                                                                                       |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
