@@ -28,7 +28,7 @@ fastify.register(projectRoutes, { prefix: "/api/v1/projects" });
 
 const start = async () => {
   try {
-    await fastify.listen(process.env.PORT || 5000);
+    fastify.listen({ port: process.env.PORT || 5000 });
     fastify.log.info(
       `Server is running on port ${fastify.server.address().port}`
     );
